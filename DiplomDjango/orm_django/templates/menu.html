@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    {% block pagename %}
+    <center><h1> Добро пожаловать, в раздел:</h1></center>
+    {% endblock %}
+</head>
+<body>
+
+<nav>
+{% block menu %}
+
+    <ul>
+        <li><h2><a href="{{main_page}}">Главная</a></h2></li>
+
+    </ul>
+
+{% endblock %}
+</nav>
+<main>
+    <div>
+        {% block content %}
+             </br>
+            <b><p align="center">2025 by Andrey </p></b>
+        {% endblock %}
+    </div>
+</main>
+</body>
+</html>

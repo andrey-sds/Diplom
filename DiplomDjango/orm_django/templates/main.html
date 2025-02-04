@@ -1,0 +1,8 @@
+{% extends "menu.html" %}
+
+{% block pagename%} <center><h1>{{title}}</h1> </center>
+<p align="right"><a href="/sign"> Регистрация </a> </p>
+{% endblock %}
+
+    {% include 'menu.html' %}
+{%block content %} {{ block.super}} {% endblock %}

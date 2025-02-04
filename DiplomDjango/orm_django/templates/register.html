@@ -1,0 +1,97 @@
+{% extends "menu.html" %}
+{% block pagename%} {{block.super}}<center><h1>Регистрация</h1></center>{% endblock %}
+{% block menu %}
+
+{% endblock %}
+
+{% block content %}
+
+ {% if info.error %}
+        <div style="color: red;">
+            <p><b>{{ info.error }}</b></p>
+        </div>
+    {% endif %}
+
+<form method="post">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+            <div style="color: red;">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <div>
+            <b>{{ form.username.label_tag }}</b><br>
+            {{ form.username }}<br>
+            {% if form.username.errors %}
+                <div style="color: red;">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <b>{{ form.password.label_tag }}</b><br>
+            {{ form.password }}<br>
+            {% if form.password.errors %}
+                <div style="color: red;">
+                    {{ form.password.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+           <b>{{ form.repeat_password.label_tag }}</b><br>
+            {{ form.repeat_password }}<br>
+            {% if form.repeat_password.errors %}
+                <div style="color: red;">
+                    {{ form.repeat_password.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <b>{{ form.firstname.label_tag }}</b><br>
+            {{ form.firstname }}<br>
+            {% if form.firstname.errors %}
+                <div style="color: red;">
+                    {{ form.firstname.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <b>{{ form.lastname.label_tag }}</b><br>
+            {{ form.lastname }}<br>
+            {% if form.lastname.errors %}
+                <div style="color: red;">
+                    {{ form.lastname.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div>
+            <b>{{ form.age.label_tag }}</b><br>
+            {{ form.age }}<br>
+            {% if form.age.errors %}
+                <div style="color: red;">
+                    {{ form.age.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Кнопка отправки формы -->
+        <div>
+            <button type="submit">Зарегистрироваться</button>
+        </div>
+    </form>
+
+{% if info.success %}
+ <center><p style="color: green;"><b>{{ info.success }}</b></p></center>
+    {% endif %}
+<div>
+    <p><a href="/">На главную</a></p>
+</br>
+
+</div>
+
+{{ block.super }}
+{% endblock %}
